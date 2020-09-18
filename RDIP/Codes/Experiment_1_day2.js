@@ -20,6 +20,7 @@ var text_hindi=[["राम और श्याम बाजार गयें"
             ["एक बड़ी सी किताब वहाँ है","एक बड़ी सी किताब है वहाँ","बड़ी सी एक किताब वहाँ है","बड़ी सी एक किताब है वहाँ","वहाँ है एक बड़ी सी किताब","वहाँ है बड़ी सी एक किताब","है वहाँ एक बड़ी सी किताब","है वहाँ बड़ी सी एक किताब"]
           ];
 var total_hindi=["राम और श्याम बाजार गयें","राम सोया और श्याम भी","मैंने उसे बताया कि राम सो रहा है","राम खाकर सोया","बिल्लियों को मारकर कुत्ता सो गया"  ,"एक लाल किताब वहाँ है","एक बड़ी सी किताब वहाँ है"];
+var demo;
 function langselect(){
     var corpus=[]
     document.getElementById("start").innerHTML="<b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b><br>(select the buttons in proper order)";
@@ -37,7 +38,7 @@ division=document.getElementById("w_buttons");
     else{
         corpus=text_hindi;
     }
-    var but=[];var temp;
+    var temp;
     ind=Math.floor(Math.random()*corpus.length);
     sentence=corpus[ind][0];
     words=sentence.split(" ");
@@ -47,7 +48,13 @@ division=document.getElementById("w_buttons");
         words[ind]=words[n];
         words[n]=temp;
     }
+    demo=words;
+    re_click(words);
+  }
     var sel_sentence="";
+    function re_click(words)
+    {
+      var sel_sentence="";var but=[];
     for(var i=0;i<words.length;i++){
         but[i]=document.createElement("input");
         but[i].type="button";
@@ -62,4 +69,12 @@ division=document.getElementById("w_buttons");
             };
         division.appendChild(but[i]);
     }
+}
+function reform_words()
+{division=document.getElementById("w_buttons");
+    division.innerHTML="";
+    var sel_sentence="";
+    document.getElementById("end").innerHTML=sel_sentence;
+  re_click(demo);
+
 }
