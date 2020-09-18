@@ -47,12 +47,19 @@ division=document.getElementById("w_buttons");
         words[ind]=words[n];
         words[n]=temp;
     }
+    var sel_sentence="";
     for(var i=0;i<words.length;i++){
         but[i]=document.createElement("input");
         but[i].type="button";
         but[i].value=words[i];
         but[i].style.display="inline";
         but[i].style.margin="0px 5px";
+        but[i].onclick=function(){
+            sel_sentence+=this.value+" ";
+            document.getElementById("end").innerHTML=sel_sentence;
+            this.style.display="none";
+            document.getElementById("reform_button").style.visibility="visible";
+            };
         division.appendChild(but[i]);
     }
 }
