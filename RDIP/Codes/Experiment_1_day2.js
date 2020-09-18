@@ -37,10 +37,17 @@ division=document.getElementById("w_buttons");
     else{
         corpus=text_hindi;
     }
-    var but=[]
-    sentence=corpus[0][0];
+    var but=[];var temp;
+    ind=Math.floor(Math.random()*corpus.length);
+    sentence=corpus[ind][0];
     words=sentence.split(" ");
-    for(i=0;i<words.length;i++){
+    for(var n=0;n<words.length;n++){
+        ind=Math.floor(Math.random()*words.length);
+        temp=words[ind];
+        words[ind]=words[n];
+        words[n]=temp;
+    }
+    for(var i=0;i<words.length;i++){
         but[i]=document.createElement("input");
         but[i].type="button";
         but[i].value=words[i];
