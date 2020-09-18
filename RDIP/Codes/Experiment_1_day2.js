@@ -54,7 +54,7 @@ division=document.getElementById("w_buttons");
     var sel_sentence="";
     function re_click(words)
     {
-      var sel_sentence="";var but=[];
+      var sel_sentence="";var but=[];var word_length=words.length;
     for(var i=0;i<words.length;i++){
         but[i]=document.createElement("input");
         but[i].type="button";
@@ -62,10 +62,16 @@ division=document.getElementById("w_buttons");
         but[i].style.display="inline";
         but[i].style.margin="0px 5px";
         but[i].onclick=function(){
+          word_length--;
             sel_sentence+=this.value+" ";
             document.getElementById("end").innerHTML=sel_sentence;
             this.style.display="none";
             document.getElementById("reform_button").style.visibility="visible";
+            document.getElementById("reform_text").style.visibility="visible";
+            if(word_length==0)
+            {
+              document.getElementById("check").style.visibility="visible";
+            }
             };
         division.appendChild(but[i]);
     }
