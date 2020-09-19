@@ -97,15 +97,6 @@ function check_sent()
   else{
       corpus=text_hindi;
   }
-  // // for(var k=0;k<demo.length;k++)
-  // {
-  //   if(k==demo.length-1)
-  //   {
-  //     demo_str+=demo[k];
-  //   }
-  //   else{
-  //   demo_str+=demo[k]+" ";
-  // }}
   for(var i=0;i<corpus.length;i++)
   {
   for(var j=0;j<corpus[i].length;j++)
@@ -122,9 +113,31 @@ function check_sent()
         {
           var s1="Wrong Answer!"
           document.getElementById("correct").style.color="red";
+          document.getElementById("get_ans").style.visibility="visible";
         }
       }
     }
   }
 document.getElementById("correct").innerHTML=s1;
+}
+function get_ans()
+{
+  var arr=[];
+  division=document.getElementById("answer");
+  for(var i=0;i<corpus.length;i++)
+  {
+  for(var j=0;j<corpus[i].length;j++)
+  {
+    if(sentence==corpus[i][j]){
+      var correct_answers=corpus[i];
+      break;
+    }}}
+    for(var k=0;k<correct_answers.length;k++){
+    arr[k]=document.createElement("p");
+    arr[k].type="text";
+    arr[k].innerHTML=correct_answers[k];
+    // arr[i].onclick=
+    division.appendChild(arr[k]);
+  }
+
 }
