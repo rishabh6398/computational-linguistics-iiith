@@ -1,5 +1,13 @@
 body{
-  text-align:centre;
+  vertical-align:middle;
   font-style: italic;
   font-family: sans-serif;
+}
+
+ div.a{
+  text-align:center;
+}
+correct{
+  font-size:2rem;
+  font-weight: bold;
 }

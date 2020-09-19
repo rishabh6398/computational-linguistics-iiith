@@ -20,7 +20,8 @@ var text_hindi=[["राम और श्याम बाजार गयें"
             ["एक बड़ी सी किताब वहाँ है","एक बड़ी सी किताब है वहाँ","बड़ी सी एक किताब वहाँ है","बड़ी सी एक किताब है वहाँ","वहाँ है एक बड़ी सी किताब","वहाँ है बड़ी सी एक किताब","है वहाँ एक बड़ी सी किताब","है वहाँ बड़ी सी एक किताब"]
           ];
 var total_hindi=["राम और श्याम बाजार गयें","राम सोया और श्याम भी","मैंने उसे बताया कि राम सो रहा है","राम खाकर सोया","बिल्लियों को मारकर कुत्ता सो गया"  ,"एक लाल किताब वहाँ है","एक बड़ी सी किताब वहाँ है"];
-var demo;
+var demo;var sentence;
+var selection;
 function langselect(){
     var corpus=[]
     document.getElementById("start").innerHTML="<b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b><br>(select the buttons in proper order)";
@@ -74,13 +75,56 @@ division=document.getElementById("w_buttons");
             }
             };
         division.appendChild(but[i]);
+        selection=sel_sentence;
     }
 }
 function reform_words()
 {division=document.getElementById("w_buttons");
     division.innerHTML="";
-    var sel_sentence="";
+    var sel_sentence="";selection="";
     document.getElementById("end").innerHTML=sel_sentence;
   re_click(demo);
 
+}
+function check_sent()
+{
+  var demo_str="";
+  var demo_str=document.getElementById("end").innerHTML;
+  var dem_str=demo_str.substring(0,demo_str.length-1);
+  if(document.getElementById("language").value=="English"){
+      corpus=text;
+  }
+  else{
+      corpus=text_hindi;
+  }
+  // // for(var k=0;k<demo.length;k++)
+  // {
+  //   if(k==demo.length-1)
+  //   {
+  //     demo_str+=demo[k];
+  //   }
+  //   else{
+  //   demo_str+=demo[k]+" ";
+  // }}
+  for(var i=0;i<corpus.length;i++)
+  {
+  for(var j=0;j<corpus[i].length;j++)
+  {
+    if(sentence==corpus[i][j])
+    {
+      if(dem_str==corpus[i][j])
+      {
+        var s1="Correct Answer!"
+        document.getElementById("correct").style.color="green";
+        break;
+      }
+      else
+        {
+          var s1="Wrong Answer!"
+          document.getElementById("correct").style.color="red";
+        }
+      }
+    }
+  }
+document.getElementById("correct").innerHTML=s1;
 }

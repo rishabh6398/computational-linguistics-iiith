@@ -7,6 +7,7 @@
     <h2>Experiment</h2>
   </head>
   <body>
+    <div class='a'>
     <select required name="language" id="language" onchange="langselect()">
     <option value="" disabled selected>--Select Language--</option>
     <option value="English">English</option>
@@ -17,7 +18,10 @@
   <p id="reform_text" style="visibility:hidden">Formed Sentence (after selecting words)</p>
   <p id="end"></p>
   <button type="button" name="button" id="reform_button" style="visibility:hidden" onclick="reform_words()">Re-form the Sentence</button><br>
+  <p></p>
   <button type="button" name="button" id="check" onclick="check_sent()" style="visibility:hidden">Check the correctness of this sentence</button>
+  <p style="font-size:2rem" id="correct"></p>
+  </div>
   <script type="text/javascript" src="Experiment_1_day2.js">
 
   </script>
