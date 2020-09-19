@@ -50,6 +50,14 @@ division=document.getElementById("w_buttons");
         words[n]=temp;
     }
     demo=words;
+    document.getElementById("reform_text").style.visibility="hidden";
+    document.getElementById("end").innerHTML="";
+    document.getElementById("reform_button").style.visibility="hidden";
+    document.getElementById("check").style.visibility="hidden";
+    document.getElementById("correct").innerHTML="";
+    document.getElementById("get_ans").style.visibility="hidden";
+    document.getElementById("answer").innerHTML="";
+    
     re_click(words);
   }
     var sel_sentence="";
@@ -122,6 +130,13 @@ document.getElementById("correct").innerHTML=s1;
 }
 function get_ans()
 {
+  if(document.getElementById("get_ans").innerHTML=="Hide the correct sentence")
+  {
+    division="";document.getElementById("answer").innerHTML="";
+    document.getElementById("answer").style.visibility="hidden";
+      document.getElementById("get_ans").innerHTML="Get Answers";
+  }
+  else {
   var arr=[];
   division=document.getElementById("answer");
   for(var i=0;i<corpus.length;i++)
@@ -139,5 +154,7 @@ function get_ans()
     // arr[i].onclick=
     division.appendChild(arr[k]);
   }
-
+    document.getElementById("get_ans").innerHTML="Hide the correct sentence";
+    document.getElementById("answer").style.visibility="visible";
+}
 }
